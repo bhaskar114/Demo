@@ -28,7 +28,28 @@
 				<configuration>
 				</configuration>
 			</plugin>
+			<plugin>
+				  <groupId>org.mule.tools.maven</groupId>
+				  <artifactId>mule-maven-plugin</artifactId>
+				  <version>3.3.2</version>
+				  <extensions>true</extensions>
+				  <configuration>
+					<cloudHubDeployment>
+					  <uri>https://anypoint.mulesoft.com</uri>
+					  <muleVersion>${app.runtime}</muleVersion>
+					  <username>demo_mindtree_1</username>
+					  <password>Middleware@2020</password>
+					  <applicationName>hello-world-demo</applicationName>
+					  <workerType>MICRO</workerType> 
+					  <environment>Sandbox</environment>
+					  <properties>
+						<key>value</key>
+					  </properties>
+					</cloudHubDeployment>
+				</configuration>
+			</plugin>
 		</plugins>
+		
 	</build>
 
 	<dependencies>
@@ -70,6 +91,10 @@
                 <enabled>false</enabled>
             </snapshots>
         </pluginRepository>
+		<pluginRepository>
+			<id>mule-public</id>
+			<url>https://repository.mulesoft.org/nexus/content/repositories/releases</url>
+		</pluginRepository>
     </pluginRepositories>
 
 </project>
